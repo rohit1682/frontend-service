@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-lexend: "Lexend", sans-serif;
+  --color-primary: #9EF300;
+  --color-status-scheduled: #4EB7FC;
+  --color-status-waiting: #6C6F80;
+  --color-status-finished: #FDD63B;
+  --color-status-cancelled: #FF4242;
+  --color-status-in-progress: #FFA500;
+  --shadow-cardshadow: rgba(8, 8, 10, 0.15) 0px 0px 16px;
+}
+
+
+body {
+  font-family: var(--font-lexend);
+  box-sizing: border-box;
+}
+
+
+
+.active {
+  border-bottom: 3px solid greenyellow;
+  font-weight: normal;
+}

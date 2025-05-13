@@ -1,0 +1,51 @@
+Folder PATH listing for volume Windows
+Volume serial number is 7064-2969
+C:.
+¦   .gitignore
+¦   eslint.config.js
+¦   index.html
+¦   package-lock.json
+¦   package.json
+¦   readme.md
+¦   structure.txt
+¦   tsconfig.app.json
+¦   tsconfig.json
+¦   tsconfig.node.json
+¦   vite.config.ts
+¦   
++---public
+¦       vite.svg
+¦       
++---src
+    ¦   App.css
+    ¦   App.tsx
+    ¦   index.css
+    ¦   main.tsx
+    ¦   vite-env.d.ts
+    ¦   
+    +---assets
+    ¦       react.svg
+    ¦       
+    +---components
+    +---layouts
+    ¦   +---AuthLayout
+    ¦   ¦   ¦   Authlayout.tsx
+    ¦   ¦   ¦   
+    ¦   ¦   +---components
+    ¦   +---MainLayout
+    ¦       ¦   MainLayout.tsx
+    ¦       ¦   
+    ¦       +---components
+    ¦               Navbar.tsx
+    ¦               
+    +---pages
+        +---auth
+        ¦       LoginPage.tsx
+        ¦       RegisterPage.tsx
+        ¦       
+        +---coaches
+        +---home
+        ¦       Home.tsx
+        ¦       
+        +---reports
+        +---workouts
