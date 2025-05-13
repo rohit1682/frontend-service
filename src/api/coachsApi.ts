@@ -3,7 +3,7 @@ import api from "./apiConfig";
 // Get list of all coaches
 export const getCoachList = async () => {
   try {
-    const response = await api.get("/coaches");
+    const response = await api.get("gym/coaches");
     return response.data.data;
   } catch (error) {
     console.error("Error fetching coach list:", error);
@@ -14,7 +14,7 @@ export const getCoachList = async () => {
 // Get coach by ID
 export const getCoach = async (coachId: string) => {
   try {
-    const response = await api.get(`/coaches/${coachId}`);
+    const response = await api.get(`gym/coaches/${coachId}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching coach details:", error);
@@ -26,7 +26,7 @@ export const getCoach = async (coachId: string) => {
 export const getAvailableSlot = async (coachId: string, date: string) => {
   try {
     const response = await api.get(
-      `/coaches/${coachId}/available-slots/${date}`
+      `gym/coaches/${coachId}/available-slots/${date}`
     );
     return response.data;
   } catch (error) {
@@ -38,7 +38,7 @@ export const getAvailableSlot = async (coachId: string, date: string) => {
 // Get feedback for a coach
 export const getCoachFeedback = async (coachId: string) => {
   try {
-    const response = await api.get(`/coaches/${coachId}/feedbacks`);
+    const response = await api.get(`gym/coaches/${coachId}/feedbacks`);
     return response.data;
   } catch (error) {
     console.error("Error fetching coach feedback:", error);

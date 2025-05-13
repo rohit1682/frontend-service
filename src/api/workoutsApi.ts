@@ -17,7 +17,7 @@ export const getAvailableWorkouts = async (params: {
     if (params.time) queryParams.append("time", params.time);
 
     const response = await api.get(
-      `/workouts/available?${queryParams.toString()}`
+      `gym/workouts?${queryParams.toString()}`
     );
 
     return response.data;
