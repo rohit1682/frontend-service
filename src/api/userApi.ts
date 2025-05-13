@@ -1,7 +1,8 @@
 import api from "./apiConfig";
+import { store } from "../store/store";
 
 export const getUserProfile = async (userId: string) => {
-  const response = await api.get(`/users/${userId}`);
+  const response = await api.get(`user/users/${userId}`);
   return response.data;
 };
 
@@ -19,17 +20,25 @@ export const updateUserProfile = async (
     title?: string;
   }
 ) => {
-  const response = await api.put(`/users/${userId}`, profileData);
+  const token = store.getState().auth.token;
+  const response = await api.patch(
+    `user/users/profile`,
+    { ...profileData, userId },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   return response.data;
 };
-
 
 export const changePassword = async (
   oldPassword: string,
   newPassword: string,
   userId: string
 ) => {
-  const response = await api.put(`/users/${userId}/password`, {
+  const response = await api.put(`user/users/password`, {
     newPassword,
     oldPassword,
     userId,
