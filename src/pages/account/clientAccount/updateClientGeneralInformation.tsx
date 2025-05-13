@@ -162,7 +162,11 @@ const UpdateClientGeneralInformation: React.FC<GeneralInformationProps> = ({
               />
               <div className="flex flex-row gap-2">
                 <p className="">Edit</p>
-                <button type="button" onClick={handleCameraClick}>
+                <button
+                  type="button"
+                  onClick={handleCameraClick}
+                  aria-label="Edit profile picture"
+                >
                   <CiCamera className="w-5 h-5  hover:cursor-pointer" />
                 </button>
                 <input
@@ -185,7 +189,7 @@ const UpdateClientGeneralInformation: React.FC<GeneralInformationProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row w-full gap-2">
+        <div className="mt-5 flex flex-col md:flex-row w-full gap-2">
           <Text
             id="firstName"
             legendText="First Name"
@@ -213,10 +217,12 @@ const UpdateClientGeneralInformation: React.FC<GeneralInformationProps> = ({
           legendText="Target"
           htmlFor="UserTarget"
           children={[
-            "WEIGHT_LOSS",
-            "MUSCLE_GAIN",
-            "IMPROVE_FLEXIBILITY",
-            "GENERAL_FITNESS",
+            "Lose weight",
+            "Gain weight",
+            "Improve flexibility",
+            "General fitness",
+            "Build Muscle",
+            "Rehabilitation/Recovery",
           ]}
           value={formData.target}
           onChange={(val) => handleChange("target", val)}
@@ -228,7 +234,14 @@ const UpdateClientGeneralInformation: React.FC<GeneralInformationProps> = ({
           id="preferableActivity"
           legendText="Preferable Activity"
           htmlFor="Activity"
-          children={["YOGA", "PILATES", "CARDIO", "STRENGTH", "FLEXIBILITY"]}
+          children={[
+            "Yoga",
+            "Climbing",
+            "Strength training",
+            "Cross-fit",
+            "Cardio Training",
+            "Rehabilitation",
+          ]}
           value={formData.preferableActivity}
           onChange={(val) => handleChange("preferableActivity", val)}
           hasError={!!errors.preferableActivity}

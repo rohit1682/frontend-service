@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FiMenu, FiX, FiUser } from "react-icons/fi";
@@ -81,7 +82,10 @@ const Navbar = () => {
       </div>
 
       <div className="md:hidden">
-        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          aria-label="Toggle sidebar"
+        >
           {isSidebarOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       </div>
@@ -100,7 +104,10 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <img src={logo} alt="EnergyX" className="h-6" />
-          <button onClick={() => setIsSidebarOpen(false)}>
+          <button
+            onClick={() => setIsSidebarOpen(false)}
+            aria-label="Close sidebar"
+          >
             <FiX size={24} />
           </button>
         </div>

@@ -40,8 +40,8 @@ const UpdateCoachGeneralInformation: React.FC<GeneralInformationProps> = ({
   });
 
   useEffect(() => {
-    const fetchUserProfile = async ()=>{
-      const response = await getUserProfile(data?.sub || ""); 
+    const fetchUserProfile = async () => {
+      const response = await getUserProfile(data?.sub || "");
       setFormData({
         firstName: response.data.firstName,
         lastName: response.data.lastName,
@@ -50,7 +50,7 @@ const UpdateCoachGeneralInformation: React.FC<GeneralInformationProps> = ({
         title: response.data.title,
         aboutMe: response.data.about,
       });
-    }
+    };
 
     fetchUserProfile();
   }, []);
@@ -199,7 +199,12 @@ const UpdateCoachGeneralInformation: React.FC<GeneralInformationProps> = ({
               </div>
               <div className="flex flex-row gap-2">
                 <p className="">Edit</p>
-                <button type="button" onClick={handleCameraClick}>
+                <button
+                  type="button"
+                  onClick={handleCameraClick}
+                  title="Edit profile picture"
+                  aria-label="Edit profile picture"
+                >
                   <CiCamera className="w-5 h-5 pt-1 hover:cursor-pointer" />
                 </button>
                 <input
@@ -222,7 +227,7 @@ const UpdateCoachGeneralInformation: React.FC<GeneralInformationProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row w-full gap-2">
+        <div className="mt-5 flex flex-col md:flex-row w-full gap-2">
           <Text
             id="firstName"
             legendText="First Name"

@@ -35,12 +35,26 @@ const LoginDropDown: React.FC = () => {
   };
 
   const handleEditProfile = (role?: string) => {
+    setIsOpen(false);
     if (role === "Coach") {
       navigate("/users/coachId");
     } else {
       navigate("/users/clientId");
     }
   };
+
+  // Close dropdown when navigating
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsOpen(false);
+    };
+
+    // Listen for navigation events
+    window.addEventListener("popstate", handleRouteChange);
+    return () => {
+      window.removeEventListener("popstate", handleRouteChange);
+    };
+  }, []);
 
   return (
     <div className="relative" ref={dropdownRef}>
