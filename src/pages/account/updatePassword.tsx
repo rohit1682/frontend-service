@@ -101,7 +101,7 @@ const UpdatePassword: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="flex flex-col gap-4 my-10 mx-4 md:mx-20 max-w-3xl">
+      <div className="flex flex-col gap-4 my-10 mx-4 md:mx-5 lg:mx-20 max-w-3xl">
         <Password
           id="oldPassword"
           legendText="Current Password"

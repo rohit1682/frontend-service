@@ -34,14 +34,23 @@ export const updateUserProfile = async (
 };
 
 export const changePassword = async (
-  oldPassword: string,
+  currentPassword: string,
   newPassword: string,
   userId: string
 ) => {
-  const response = await api.put(`user/users/password`, {
-    newPassword,
-    oldPassword,
-    userId,
-  });
+  const token = store.getState().auth.token;
+  const response = await api.patch(
+    `user/users/password`,
+    {
+      newPassword,
+      currentPassword,
+      userId,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   return response.data;
 };
