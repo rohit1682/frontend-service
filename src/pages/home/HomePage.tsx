@@ -72,7 +72,9 @@ const HomePage = () => {
       try {
         setIsLoading(true);
         const res = await getAvailableWorkouts(searchParams);
-        setApiData(filterSlotsHome(res.data.content));
+        // Transform the API response using filterSlotsHome
+        const formattedData = filterSlotsHome(res);
+        setApiData(formattedData);
       } catch (err) {
         console.error("Error fetching workouts:", err);
         showToast(
@@ -89,6 +91,7 @@ const HomePage = () => {
   }, []); // Empty dependency array to run only once on mount
 
   function convertTo24HourFormat(time12h: string): string {
+    console.log("time12h", time12h);
     const [time, modifier] = time12h.split(" ");
     let [hours, minutes] = time.split(":").map(Number);
 
@@ -124,10 +127,11 @@ const HomePage = () => {
       try {
         setIsLoading(true);
         const res = await getAvailableWorkouts(searchParams);
-        setApiData(filterSlotsHome(res.data.content));
+        // Transform the API response using filterSlotsHome
+        const formattedData = filterSlotsHome(res);
+        setApiData(formattedData);
       } catch (err) {
         console.error("Error fetching workouts:", err);
-       
       } finally {
         setIsLoading(false);
       }
@@ -196,11 +200,20 @@ const HomePage = () => {
 
     try {
       setIsBooking(true);
+
+      // Parse the selected slot to get the time
+      const slotParts = selectedWorkout.selectedSlot.split(" ");
+      const timeRange = slotParts[0];
+      const period = slotParts[1].split("-")[0];
+
+      // Get the time from the slot (e.g., "10:00" from "10:00 AM-11:00 AM")
+      const timeSlot = timeRange.split("-")[0];
+
       await bookWorkout({
         clientId: userData.sub,
         coachId: selectedWorkout.coach.id || "",
         date: selectedWorkout.originalDateTime,
-        timeSlot: selectedWorkout.selectedSlot,
+        timeSlot: `${timeSlot} ${period}`, // Format as "10:00 AM"
       });
 
       // Refresh the available slots for all coaches

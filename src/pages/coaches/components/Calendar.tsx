@@ -59,6 +59,7 @@ const Calendar = ({ selectedDate, setSelectedDate }: CalendarProps) => {
             onClick={prevMonth}
             className="p-1"
             type="button" // Explicitly set button type to prevent form submission
+            aria-label="Previous month"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -69,6 +70,7 @@ const Calendar = ({ selectedDate, setSelectedDate }: CalendarProps) => {
             onClick={nextMonth}
             className="p-1"
             type="button" // Explicitly set button type to prevent form submission
+            aria-label="Next month"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
