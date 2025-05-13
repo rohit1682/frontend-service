@@ -189,7 +189,7 @@ const UpdateClientGeneralInformation: React.FC<GeneralInformationProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row w-full gap-2">
+        <div className="mt-5 flex flex-col md:flex-row w-full gap-2">
           <Text
             id="firstName"
             legendText="First Name"
